@@ -9,17 +9,39 @@ class Upload extends React.Component {
       parentFunction: props.parentFunction
     }
   }
-  
-  childFunction = (e) => {
-    e.preventDefault();
-    url = document.getElementById('url').value
-    this.props.parentFunction(url); 
+
+  inputChange = (e) => {
+    var fileIn = e.target;
+    var file = fileIn.files[0];
+    if (file && file.size < 5000000) {
+      const formData = new FormData();
+
+      formData.append("image", file);
+      fetch("https://api.imgur.com/3/image", {
+          method: "POST",
+          headers: {
+              Authorization: "Client-ID f78756df0dd654d",
+              Accept: "application/json",
+          },
+          body: formData,
+      })
+          .then((response) => response.json())
+          .then((response) => {
+              e.preventDefault();
+              this.props.parentFunction(response.data.link); 
+          });
+  } else {
+      console.error("파일 용량 초과");
   }
+  }
+    
+
+
 
   render() {
     return (
       <div>
-        <input type="text" formMethod="POST" id="url" onChange={this.childFunction}/>
+        <input type="file" name="image" id="upload" onChange={this.inputChange}/>
       </div>
     );
   }
