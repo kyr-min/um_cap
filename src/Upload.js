@@ -1,36 +1,27 @@
 const React = require('react')
+var url = 0;
 
 class Upload extends React.Component {
   constructor(props){
     super(props)
     this.state = {
-      file: null,
+      fileUrl: null,
       parentFunction: props.parentFunction
     }
-    this.handleChange = this.handleChange.bind(this)
   }
-
+  
   
 
-  handleChange(event) {
-    this.setState({
-      file: URL.createObjectURL(event.target.files[0])
-    })
+  childFunction = (e) => {
+    e.preventDefault();
+    url = document.getElementById('url').value
+    this.props.parentFunction(url); 
   }
-
-  childText = 'childText';
-
-  childFunction = () => {
-    this.props.parentFunction(this.childText);
-  }
-
 
   render() {
     return (
       <div>
-        <button onClick={this.childFunction}>click</button>
-        <input type="file" onChange={this.handleChange}/>
-        <img src={this.state.file}/>
+        <input type="text" formMethod="POST" id="url" onChange={this.childFunction}/>
       </div>
     );
   }

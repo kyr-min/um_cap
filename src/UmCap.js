@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
-let { kakao } = window;
+// import { useState, useEffect } from 'react';
+// let { kakao } = window;
 
 const UmCap = ({test_text}) => {
     // let [image, ] = useState();
@@ -27,7 +27,6 @@ const UmCap = ({test_text}) => {
     // } 
 
 
-    console.log(`This is UmCap.js recieved "${test_text}"`);
 
     return (
         /* 만약 이미지 파일이 없으면 return ;
