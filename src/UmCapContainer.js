@@ -1,5 +1,4 @@
 import { useState } from 'react';
-<<<<<<< HEAD
 import Upload from './Upload';
 import React from 'react';
 import axios from 'axios';
@@ -45,48 +44,11 @@ const UmCapContainer = () => {
         console.log(file);
     }
 
-
-
     return (
         <div>
             <div>
                 <form method="POST">
                     <Upload parentFunction={parentFunction} fileUpload={fileUpload} />
-=======
-import UmCap from './UmCap';
-import Upload from './Upload';
-import axios from 'axios';
-
-const UmCapContainer = () => {
-    let [file, setFile] = useState()
-
-    const parentFunction = (data) => {
-        console.log(data);
-    }
-
-    const fileUpload = (data) => {
-        setFile(data);
-    } 
-
-    const callApi = (e) => {
-        e.preventDefault();
-        let headers = {'Authorization': 'KakaoAK API-KEY'}
-        let formData = new FormData();
-        formData.append('image', file);
-
-        axios.post('/v2/vision/face/detect', formData, { headers }).then(response=>{
-            console.log(response)
-        })
-    }
-
-    console.log(file);
-    
-    return (
-        <div>
-            <div>
-                <form>
-                    <Upload parentFunction={parentFunction} fileUpload={fileUpload}/>
->>>>>>> d50bc57544aee64c4f1d6865401c92258ad72aaa
                     <button onClick={callApi}>모자 씌우기</button>
                 </form>
             </div>
