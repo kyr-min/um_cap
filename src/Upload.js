@@ -20,7 +20,7 @@ class Upload extends React.Component {
       fetch("https://api.imgur.com/3/image", {
           method: "POST",
           headers: {
-              Authorization: "Client-ID f78756df0dd654d",
+              Authorization: "Client-ID ee82525f8f8f8c2",
               Accept: "application/json",
           },
           body: formData,
