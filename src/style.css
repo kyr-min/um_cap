@@ -1,0 +1,14 @@
+#imgCon {
+    display: flex;
+    flex-direction: column;
+}
+#previewImg {
+    display: flex;
+    width: 700px;
+}
+#umHat {
+    display: flex;
+    position: absolute;
+    transform-origin: 295px 200px;
+    transform: rotate(0deg);
+}

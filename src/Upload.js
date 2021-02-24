@@ -1,6 +1,7 @@
 const React = require('react')
 var url = 0;
 
+
 class Upload extends React.Component {
   constructor(props){
     super(props)
